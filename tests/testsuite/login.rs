@@ -163,7 +163,7 @@ fn new_credentials_is_used_instead_old() {
         execs().with_status(0),
     );
 
-    let config = Config::new(Shell::new(), cargo_home(), cargo_home());
+    let config = Config::new(Shell::new(), Config::cargo_dirs());
 
     let token = config.get_string("registry.token").unwrap().map(|p| p.val);
     assert_eq!(token.unwrap(), TOKEN);
